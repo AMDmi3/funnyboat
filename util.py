@@ -88,16 +88,16 @@ def load_image(name):
         # in case someone does, at least it won't crash the game if they don't
         # have Numeric installed
         w,h = image.get_size()
-        for i in xrange(w):
-            for j in xrange(h):
+        for i in range(w):
+            for j in range(h):
                 pixel = image.get_at((i,j))
                 if pixel[3] > 127:
                     image.set_at((i,j), (pixel[0], pixel[1], pixel[2], 255))
                 else:
                     image.set_at((i,j), (pixel[0], pixel[1], pixel[2], 0))
         #surfarray = pygame.surfarray.pixels_alpha(image)
-        #for i in xrange(len(surfarray)):
-        #    for j in xrange(len(surfarray[i])):
+        #for i in range(len(surfarray)):
+        #    for j in range(len(surfarray[i])):
         #        if surfarray[i][j] > 127:
         #            surfarray[i][j] = 255
         #        else:

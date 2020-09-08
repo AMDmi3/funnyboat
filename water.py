@@ -18,7 +18,7 @@ class Water(pygame.sprite.Sprite):
             Water.raster_image = util.load_image("rasteri")
 
         self.water_levels = []
-        for i in xrange(self.rect.width):
+        for i in range(self.rect.width):
             self.water_levels.append(0.0)
         self.t = 0
 
@@ -39,7 +39,7 @@ class Water(pygame.sprite.Sprite):
     
     def update(self):
         self.image.fill((200,210,255,0))
-        for x in xrange(self.rect.width):
+        for x in range(self.rect.width):
             h = SCREEN_HEIGHT - (math.sin(x * self.xmul + self.t * self.tmul) * self.amplitude + self.baseheight)
             self.water_levels[x] = h
             h_float,h_int=math.modf(h)

@@ -88,10 +88,10 @@ class Highscores:
         if new_score > self.scores[9][1]:
             #print "It's a new high score!"
             #self.inputting = True
-            for i in xrange(10):
+            for i in range(10):
                 if self.scores[i][1] < new_score:
                     self.input_score = i
-                    for j in xrange(9 - i):
+                    for j in range(9 - i):
                         self.scores[9 - j] = self.scores[8 - j]
                     self.scores[i] = [Variables.name, new_score]
                     break
@@ -150,7 +150,7 @@ class Highscores:
 
             self.screen.blit(self.title, rect)
 
-            for i in xrange(10):
+            for i in range(10):
                 color = (0,0,0)
                 #if self.inputting and self.input_score == i:
                 if self.input_score == i:
@@ -220,7 +220,7 @@ class Highscores:
     def write_scores(self):
         try:
             f = codecs.open(self.filename, "w", "utf_8")
-            for i in xrange(10):
+            for i in range(10):
                 print >> f, self.scores[i][0]
                 print >> f, self.scores[i][1]
         except:

@@ -17,8 +17,8 @@ def _pixelPerfectCollisionDetection(sp1,sp2):
     x2 = rect.x-rect2.x
     y2 = rect.y-rect2.y
 
-    for r in xrange(0,rect.height):      
-        for c in xrange(0,rect.width):
+    for r in range(0,rect.height):      
+        for c in range(0,rect.width):
             # I changed this for the 1.5 release of Funny Boat,
             # because generating hitmasks is a bit problematic
             # now that Numeric is outdated and surfarrays don't work.

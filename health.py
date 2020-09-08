@@ -40,7 +40,7 @@ class Health (pygame.sprite.Sprite):
         # clear the surface
         self.image.fill((255,255,255))
 
-        for i in xrange(5):
+        for i in range(5):
             rect = pygame.Rect(i * (Health.heart.get_width() + 1), Health.heart.get_height(), Health.heart.get_width(), Health.heart.get_height())
             if i < self.hearts_left:
                 self.image.blit(Health.heart, rect)

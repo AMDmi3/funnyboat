@@ -133,7 +133,7 @@ class Game:
                     und_old=cb.underwater
                     cb.update()
                     if cb.underwater and not und_old:
-                        for i in xrange(5):
+                        for i in range(5):
                             particle_point=cb.rect.right-4.0+rr()*8.0, cb.rect.top+rr()*2.0
                             self.particles.add_water_particle(particle_point)
                     if (cb.rect.right < 0 and cb.vect[0] < 0) or (cb.rect.left > SCREEN_WIDTH and cb.vect[0] > 0) or (cb.rect.top > SCREEN_HEIGHT):
@@ -162,7 +162,7 @@ class Game:
                         self.particles.add_steam_particle(particle_point)
 
                     if self.titanic:
-                        for j in xrange(4):
+                        for j in range(4):
                             particle_point = self.titanic.get_point((49 + rr() * 9.0 + 28 * j, 25))
                             particle_point[0] += self.titanic.rect.centerx
                             particle_point[1] += self.titanic.rect.centery
@@ -174,7 +174,7 @@ class Game:
 
                 if self.player.splash:
                     if Variables.particles:
-                        for i in xrange(10):
+                        for i in range(10):
                             r = rr()
                             x = int(r * self.player.rect.left + (1.0-r) * self.player.rect.right)
                             point = (x, self.water.get_water_level(x))
@@ -214,7 +214,7 @@ class Game:
 
     def damage_player(self):
         self.health.damage()
-        for i in xrange(10):
+        for i in range(10):
             particle_point = self.player.get_point((rr() * 26.0, rr() * 10.0))
             particle_point[0] += self.player.rect.centerx
             particle_point[1] += self.player.rect.centery
@@ -234,7 +234,7 @@ class Game:
                 width = images[-1].get_width()
         self.gameover_image = pygame.Surface((width, height), SRCALPHA, 32)
         self.gameover_image.fill((0,0,0,0))
-        for i in xrange(len(images)):
+        for i in range(len(images)):
             rect = images[i].get_rect()
             rect.top = i * images[i].get_height()
             rect.centerx = width / 2
@@ -299,7 +299,7 @@ class Game:
                             particle_point = self.player.get_point((42.0,10.0))
                             particle_point[0] += self.player.rect.centerx
                             particle_point[1] += self.player.rect.centery
-                            for i in xrange(4):
+                            for i in range(4):
                                 self.particles.add_fire_steam_particle(particle_point)
                             self.lastshot = 0
                             self.spacepressed = self.t
@@ -323,7 +323,7 @@ class Game:
                             particle_point = self.player.get_point((42.0,10.0))
                             particle_point[0] += self.player.rect.centerx
                             particle_point[1] += self.player.rect.centery
-                            for i in xrange(4):
+                            for i in range(4):
                                 self.particles.add_fire_steam_particle(particle_point)
                             self.lastshot = 0
                             self.spacepressed = self.t
@@ -348,7 +348,7 @@ class Game:
                             particle_point = self.player.get_point((42.0,10.0))
                             particle_point[0] += self.player.rect.centerx
                             particle_point[1] += self.player.rect.centery
-                            for i in xrange(30):
+                            for i in range(30):
                                 self.particles.add_fire_steam_particle((particle_point[0]+rrr(-4,4),particle_point[1]+rrr(-3,3)))
                             self.lastshot = 0
                         self.spacepressed = None
@@ -362,7 +362,7 @@ class Game:
                             particle_point = self.player.get_point((42.0,10.0))
                             particle_point[0] += self.player.rect.centerx
                             particle_point[1] += self.player.rect.centery
-                            for i in xrange(30):
+                            for i in range(30):
                                 self.particles.add_fire_steam_particle((particle_point[0]+rrr(-4,4),particle_point[1]+rrr(-3,3)))
                             self.lastshot = 0
                         self.spacepressed = None
@@ -559,7 +559,7 @@ class Game:
                 particle_point = pirate.get_point((0.0,10.0))
                 particle_point[0] += pirate.rect.centerx
                 particle_point[1] += pirate.rect.centery
-                for i in xrange(4):
+                for i in range(4):
                     self.particles.add_fire_steam_particle(particle_point)
                 
             if pirate.rect.right < self.screen.get_rect().left or pirate.dead:
@@ -573,12 +573,12 @@ class Game:
         if self.titanic:
             self.titanic.update()
             if self.titanic.t % 100 == 0 and not self.titanic.dying:
-                for i in xrange(3):
+                for i in range(3):
                     cb = Cannonball(self.titanic.rect, self.titanic.angle + (i-1)*10 - 50, left = True)
                     self.cannonballs.append(cb)
                     self.cannonball_sprites.add(cb)
             elif self.titanic.t % 100 == 50 and not self.titanic.dying:
-                for i in xrange(3):
+                for i in range(3):
                     cb = Cannonball(self.titanic.rect, self.titanic.angle + (i-1)*10 - 52.5, left = True)
                     self.cannonballs.append(cb)
                     self.cannonball_sprites.add(cb)
