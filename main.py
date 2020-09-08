@@ -77,7 +77,7 @@ def main():
         # It's not a critical problem if there's no music
         pass
 
-    pygame.time.set_timer(NEXTFRAME, 1000 / FPS) # 30 fps
+    pygame.time.set_timer(NEXTFRAME, 1000 // FPS) # 30 fps
 
     Water.global_water = Water()
 
