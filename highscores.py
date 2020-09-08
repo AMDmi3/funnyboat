@@ -36,7 +36,7 @@ class Highscores:
         if online:
             if not self.online_init():
                self.done = True
-               print "Could not get online highscores!"
+               print("Could not get online highscores!")
             return
 
         self.pathname = util.get_config_path()
@@ -49,7 +49,7 @@ class Highscores:
             if not os.path.exists(self.pathname):
                 os.mkdir(self.pathname)
         except:
-            print "Can't make directory " + self.pathname
+            print("Can't make directory " + self.pathname)
             self.done = True
             return
 
@@ -68,17 +68,17 @@ class Highscores:
                         try:
                             score = int(line)
                         except:
-                            print "Corrupt high score file."
+                            print("Corrupt high score file.")
                             self.dummy_scores()
                             break
                         self.scores.append((name, score))
                     i += 1
             except:
                 self.dummy_scores()
-                print "Can't open file " + self.filename + " or file corrupt"
+                print("Can't open file " + self.filename + " or file corrupt")
 
         if len(self.scores) < 10:
-            print "Corrupt high score file."
+            print("Corrupt high score file.")
             self.dummy_scores()
 
         # The online highscore is always submitted
@@ -130,7 +130,7 @@ class Highscores:
                 f = urllib2.urlopen(req)
                 f.close()
             except:
-                print "Failed to submit highscore"
+                print("Failed to submit highscore")
 
     def run(self):
         water = Water.global_water
@@ -221,9 +221,9 @@ class Highscores:
         try:
             f = codecs.open(self.filename, "w", "utf_8")
             for i in range(10):
-                print >> f, self.scores[i][0]
-                print >> f, self.scores[i][1]
+                print(self.scores[i][0], file=f)
+                print(self.scores[i][1], file=f)
         except:
-            print "Failed to write high scores to file " + self.filename
+            print("Failed to write high scores to file " + self.filename)
             self.done = True
             return

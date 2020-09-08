@@ -251,7 +251,7 @@ class Game:
             filename = "sshot" + str(i) + ".tga"
         
         pygame.image.save(self.screen, filename)
-        print "Screenshot saved as " + filename
+        print("Screenshot saved as " + filename)
 
     def handle_events(self):
         nextframe = False

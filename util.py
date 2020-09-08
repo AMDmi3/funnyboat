@@ -20,7 +20,7 @@ def get_config_path():
         try:
             pathname = os.environ["APPDATA"] + "/Funny Boat"
         except:
-            print "Couldn't get environment variable for home directory"
+            print("Couldn't get environment variable for home directory")
             pathname = "."
     if not os.path.exists(pathname):
         os.mkdir(pathname)
@@ -71,12 +71,12 @@ def save_config():
         os.mkdir(get_config_path())
     f = codecs.open(filename, "w", "utf_8")
 
-    print >> f, "alpha\t%s" % Variables.alpha
-    print >> f, "particles\t%s" % Variables.particles
-    print >> f, "music\t%s" % Variables.music
-    print >> f, "name\t%s" % Variables.name
-    print >> f, "sound\t%s" % Variables.sound
-    print >> f, "aa\t%s" % Variables.aa
+    print("alpha\t%s" % Variables.alpha, file=f)
+    print("particles\t%s" % Variables.particles, file=f)
+    print("music\t%s" % Variables.music, file=f)
+    print("name\t%s" % Variables.name, file=f)
+    print("sound\t%s" % Variables.sound, file=f)
+    print("aa\t%s" % Variables.aa, file=f)
 
     f.close()
 
